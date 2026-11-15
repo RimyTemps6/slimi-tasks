@@ -1,0 +1,24 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "auth": {
+    "providers": {
+      "emailPassword": true
+    }
+  },
+  "hosting": {
+    "site": "slimy-tasks",
+    "public": "dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**/*.html",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate" }
+        ]
+      }
+    ],
+    "rewrites": [{ "source": "**", "destination": "/index.html" }]
+  }
+}
